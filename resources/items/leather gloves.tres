@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="EquipableItem" load_steps=3 format=3 uid="uid://d2mtxxkr4s7nb"]
+
+[ext_resource type="Texture2D" uid="uid://f7pq6xy18nax" path="res://assets/images/icons/equipment/leather gloves.png" id="1_j1sxy"]
+[ext_resource type="Script" path="res://scripts/resources/equipable item.gd" id="2_d8hgi"]
+
+[resource]
+script = ExtResource("2_d8hgi")
+gear_slot = 6
+damage_buff = 0
+armour_buff = 0
+item_name = "leather gloves"
+icon = ExtResource("1_j1sxy")
+stackable = false
+is_unique = false
+is_equipable = true

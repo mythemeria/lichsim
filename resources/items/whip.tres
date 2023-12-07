@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="EquipableItem" load_steps=3 format=3 uid="uid://di4w0rh6qifvo"]
+
+[ext_resource type="Texture2D" uid="uid://cfsdqxgf5yayr" path="res://assets/images/icons/equipment/whip.png" id="1_cf8ss"]
+[ext_resource type="Script" path="res://scripts/resources/equipable item.gd" id="1_ey213"]
+
+[resource]
+script = ExtResource("1_ey213")
+gear_slot = 8
+damage_buff = 0
+armour_buff = 0
+item_name = "whip"
+icon = ExtResource("1_cf8ss")
+stackable = false
+is_unique = false
+is_equipable = true

@@ -1,0 +1,53 @@
+[gd_scene load_steps=6 format=3 uid="uid://d0rcj56mvya00"]
+
+[ext_resource type="PackedScene" uid="uid://brjydnr74xvx" path="res://scenes/GUI/gui.tscn" id="2_wsjmm"]
+[ext_resource type="PackedScene" uid="uid://rl303imqhwln" path="res://scenes/terrain.tscn" id="6_im88g"]
+[ext_resource type="Script" path="res://scripts/PlayerController.gd" id="7_obfmx"]
+[ext_resource type="PackedScene" uid="uid://dokxmer64kjb1" path="res://scenes/enemy.tscn" id="8_k6qja"]
+[ext_resource type="Script" path="res://scripts/Box Select.gd" id="9_77kut"]
+
+[node name="Battle Mode" type="Node3D"]
+
+[node name="GUI" parent="." instance=ExtResource("2_wsjmm")]
+script = null
+
+[node name="World" type="Node3D" parent="."]
+
+[node name="Map" type="Node3D" parent="."]
+
+[node name="Terrain" parent="Map" instance=ExtResource("6_im88g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, -0.5, -0.5)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Map"]
+transform = Transform3D(0.784892, 0.523738, 0.331123, -0.505564, 0.232322, 0.830922, 0.358258, -0.819588, 0.447131, 17.0029, 14.2563, 5.002)
+light_color = Color(0.937255, 0.92549, 0.847059, 1)
+shadow_enabled = true
+
+[node name="Controller" type="Node3D" parent="Map"]
+script = ExtResource("7_obfmx")
+
+[node name="Entities" type="Node3D" parent="Map/Controller"]
+
+[node name="Enemy" parent="Map/Controller/Entities" instance=ExtResource("8_k6qja")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 6)
+has_health_bar = false
+
+[node name="Cam Base" type="Node3D" parent="Map/Controller"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.81137)
+
+[node name="Main Cam" type="Camera3D" parent="Map/Controller/Cam Base"]
+transform = Transform3D(1, 0, 0, 0, 0.754503, 0.656296, 0, -0.656296, 0.754503, 0, 6.09513, 10.23)
+size = 10.0
+
+[node name="Selection Box" type="Control" parent="Map/Controller/Cam Base"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("9_77kut")
+
+[node name="Node3D" type="Node3D" parent="Map/Controller"]
+
+[connection signal="gui_input" from="GUI" to="Map/Controller" method="_on_gui_gui_input"]
+[connection signal="path_found" from="Map/Terrain" to="Map/Controller" method="_on_terrain_path_found"]
+[connection signal="find_path" from="Map/Controller" to="Map/Terrain" method="_on_controller_find_path"]

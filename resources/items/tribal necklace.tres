@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="EquipableItem" load_steps=3 format=3 uid="uid://gyps7slqj4cl"]
+
+[ext_resource type="Texture2D" uid="uid://bxmyci1q68jv7" path="res://assets/images/icons/equipment/tribal necklace.png" id="1_h67lr"]
+[ext_resource type="Script" path="res://scripts/resources/equipable item.gd" id="2_jh7oe"]
+
+[resource]
+script = ExtResource("2_jh7oe")
+gear_slot = 5
+damage_buff = 0
+armour_buff = 0
+item_name = "tribal necklace"
+icon = ExtResource("1_h67lr")
+stackable = false
+is_unique = false
+is_equipable = true

@@ -1,0 +1,34 @@
+[gd_scene load_steps=2 format=3 uid="uid://bv5osqrrano5f"]
+
+[ext_resource type="Script" path="res://scripts/gui/change gamemode buttons.gd" id="1_5s3x8"]
+
+[node name="VBoxContainer" type="VBoxContainer"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -55.0
+offset_top = -101.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 10
+size_flags_vertical = 10
+alignment = 2
+script = ExtResource("1_5s3x8")
+
+[node name="Map" type="Button" parent="."]
+layout_mode = 2
+text = "Map"
+
+[node name="Lair" type="Button" parent="."]
+layout_mode = 2
+text = "Lair"
+
+[node name="Battle" type="Button" parent="."]
+layout_mode = 2
+text = "Battle"
+
+[connection signal="pressed" from="Map" to="." method="_on_map_pressed"]
+[connection signal="pressed" from="Lair" to="." method="_on_lair_pressed"]
+[connection signal="pressed" from="Battle" to="." method="_on_battle_pressed"]

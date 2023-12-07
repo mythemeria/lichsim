@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="EquipableItem" load_steps=3 format=3 uid="uid://hyq2j7hxd31j"]
+
+[ext_resource type="Texture2D" uid="uid://cyf5b5x4p54xh" path="res://assets/images/icons/equipment/sword.png" id="1_2ehdg"]
+[ext_resource type="Script" path="res://scripts/resources/equipable item.gd" id="1_w5k1m"]
+
+[resource]
+script = ExtResource("1_w5k1m")
+gear_slot = 8
+damage_buff = 0
+armour_buff = 0
+item_name = "sword"
+icon = ExtResource("1_2ehdg")
+stackable = false
+is_unique = false
+is_equipable = true

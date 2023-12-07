@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://dc865c7rwjldn"]
+
+[ext_resource type="Script" path="res://scripts/portal.gd" id="1_7xi6s"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ycktd"]
+albedo_color = Color(0.0509804, 1, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_kioa3"]
+material = SubResource("StandardMaterial3D_ycktd")
+size = Vector3(0.2, 0.2, 0.2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_njnvt"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_0qa53"]
+material = SubResource("StandardMaterial3D_njnvt")
+size = Vector3(0.2, 0.2, 0.2)
+
+[node name="Portal" type="Node3D"]
+script = ExtResource("1_7xi6s")
+
+[node name="Start" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Start"]
+mesh = SubResource("BoxMesh_kioa3")
+
+[node name="End" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="End"]
+mesh = SubResource("BoxMesh_0qa53")

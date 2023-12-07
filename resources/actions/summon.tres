@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Action" load_steps=2 format=3 uid="uid://c7www5p7db42t"]
+
+[ext_resource type="Script" path="res://scripts/entity/action.gd" id="1_jow65"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("1_jow65")
+action_name = "summon"
+action_range = 10
+cursor_mode = 2
+select_mode = 2
+range_type = null
+called_function = "summon_entity"
+function_parent_id = 2
+required_arguments = Array[int]([0, 3])

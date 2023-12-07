@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="EquipableItem" load_steps=3 format=3 uid="uid://5sxudc8l08as"]
+
+[ext_resource type="Texture2D" uid="uid://uswnpl2flgcw" path="res://assets/images/icons/equipment/kite shield 2.png" id="1_26cq6"]
+[ext_resource type="Script" path="res://scripts/resources/equipable item.gd" id="2_xf68w"]
+
+[resource]
+script = ExtResource("2_xf68w")
+gear_slot = 9
+damage_buff = 0
+armour_buff = 0
+item_name = "kite shield 2"
+icon = ExtResource("1_26cq6")
+stackable = false
+is_unique = false
+is_equipable = true

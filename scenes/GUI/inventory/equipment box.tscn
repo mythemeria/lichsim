@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://b6h3h7qb0w1d8"]
+
+[ext_resource type="Script" path="res://scripts/gui/lair/equipment box.gd" id="1_kjval"]
+
+[node name="Button" type="Button"]
+texture_filter = 5
+custom_minimum_size = Vector2(40, 40)
+offset_right = 8.0
+offset_bottom = 8.0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+button_mask = 0
+script = ExtResource("1_kjval")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

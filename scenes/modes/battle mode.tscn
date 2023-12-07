@@ -1,0 +1,188 @@
+[gd_scene load_steps=17 format=3 uid="uid://d0rcj56mvya00"]
+
+[ext_resource type="Script" path="res://scripts/battle mode/battle cursor.gd" id="1_ek8fr"]
+[ext_resource type="PackedScene" uid="uid://cqjsp0rxf8j1j" path="res://scenes/GUI/turn profile container.tscn" id="2_qvi33"]
+[ext_resource type="Script" path="res://scripts/Skelly Select.gd" id="3_absr5"]
+[ext_resource type="Script" path="res://scripts/gui/action bar.gd" id="5_vn4rw"]
+[ext_resource type="Resource" uid="uid://dkl5culmgvypf" path="res://resources/actions/move.tres" id="5_vxrly"]
+[ext_resource type="Resource" uid="uid://bakdypn6medug" path="res://resources/gear presets/skeleton archer.tres" id="6_0pn3a"]
+[ext_resource type="Script" path="res://scripts/battle mode/party controller.gd" id="6_8k4w6"]
+[ext_resource type="PackedScene" uid="uid://rl303imqhwln" path="res://scenes/terrain.tscn" id="6_im88g"]
+[ext_resource type="PackedScene" uid="uid://ckwqvm7hcw2tm" path="res://scenes/entity/entity scenes/skeleton.tscn" id="7_quko0"]
+[ext_resource type="Resource" uid="uid://s2400x8c3840" path="res://resources/parties/test enemy party.tres" id="7_ty4pw"]
+[ext_resource type="Script" path="res://scripts/resources/entity data.gd" id="8_iioy4"]
+[ext_resource type="Resource" uid="uid://o0bs2ymqgksl" path="res://resources/parties/test player party.tres" id="8_ofo32"]
+[ext_resource type="Script" path="res://scripts/battle mode/battle camera.gd" id="9_7le1q"]
+[ext_resource type="Script" path="res://scripts/Box Select.gd" id="9_77kut"]
+[ext_resource type="PackedScene" uid="uid://8ck8iotpuvfj" path="res://scenes/battle mode/spawn_point.tscn" id="11_x67tw"]
+
+[sub_resource type="Resource" id="Resource_kvd41"]
+script = ExtResource("8_iioy4")
+scene = ExtResource("7_quko0")
+override_gear = true
+gear = ExtResource("6_0pn3a")
+additional_actions = Array[Resource]([ExtResource("5_vxrly")])
+override_stats = false
+max_hp = 0
+strength = 0
+magic = 0
+max_move = 0
+move_speed = 0
+override_avatar = false
+
+[node name="Battle Mode" type="Node3D"]
+
+[node name="GUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_ek8fr")
+
+[node name="MarginContainer" type="MarginContainer" parent="GUI"]
+clip_contents = true
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="turn profiles" parent="GUI/MarginContainer" instance=ExtResource("2_qvi33")]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+size_flags_horizontal = 1
+size_flags_vertical = 0
+
+[node name="Skeletons" type="ItemList" parent="GUI/MarginContainer"]
+custom_minimum_size = Vector2(90, 400)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+focus_mode = 0
+mouse_default_cursor_shape = 2
+select_mode = 1
+allow_search = false
+text_overrun_behavior = 1
+script = ExtResource("3_absr5")
+
+[node name="End Turn" type="Button" parent="GUI/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+text = "End Turn"
+
+[node name="Action Bar" type="GridContainer" parent="GUI/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+mouse_filter = 0
+columns = 10
+script = ExtResource("5_vn4rw")
+skelly_data = SubResource("Resource_kvd41")
+
+[node name="Map" type="Node3D" parent="."]
+
+[node name="Terrain" parent="Map" instance=ExtResource("6_im88g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, -0.5, -0.5)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Map"]
+transform = Transform3D(0.784892, 0.523738, 0.331123, -0.505564, 0.232322, 0.830922, 0.358258, -0.819588, 0.447131, 17.0029, 14.2563, 5.002)
+light_color = Color(0.937255, 0.92549, 0.847059, 1)
+shadow_enabled = true
+
+[node name="Controller" type="Node3D" parent="Map"]
+
+[node name="Entities" type="Node3D" parent="Map/Controller"]
+script = ExtResource("6_8k4w6")
+enemy_party_data = ExtResource("7_ty4pw")
+player_party_data = ExtResource("8_ofo32")
+
+[node name="Cam Base" type="Node3D" parent="Map/Controller"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.81137)
+script = ExtResource("9_7le1q")
+
+[node name="Main Cam" type="Camera3D" parent="Map/Controller/Cam Base"]
+transform = Transform3D(1, 0, 0, 0, 0.754503, 0.656296, 0, -0.656296, 0.754503, 0, 6.09513, 10.23)
+size = 10.0
+
+[node name="Selection Box" type="Control" parent="Map/Controller/Cam Base"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("9_77kut")
+
+[node name="Spawners" type="Node3D" parent="Map/Controller"]
+
+[node name="Player 1" parent="Map/Controller/Spawners" instance=ExtResource("11_x67tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 2, 6)
+
+[node name="Player 2" parent="Map/Controller/Spawners" instance=ExtResource("11_x67tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 2, 6)
+
+[node name="Player 3" parent="Map/Controller/Spawners" instance=ExtResource("11_x67tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 2, 7)
+
+[node name="Player 4" parent="Map/Controller/Spawners" instance=ExtResource("11_x67tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 2, 7)
+
+[node name="Player 5" parent="Map/Controller/Spawners" instance=ExtResource("11_x67tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 2, 6)
+
+[node name="Player 6" parent="Map/Controller/Spawners" instance=ExtResource("11_x67tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 1, 7)
+
+[node name="Player 7" parent="Map/Controller/Spawners" instance=ExtResource("11_x67tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, 6)
+
+[node name="Player 8" parent="Map/Controller/Spawners" instance=ExtResource("11_x67tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, 7)
+
+[node name="Enemy 1" parent="Map/Controller/Spawners" instance=ExtResource("11_x67tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 3, -4)
+entity_type = 1
+
+[node name="Enemy 2" parent="Map/Controller/Spawners" instance=ExtResource("11_x67tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 3, -4)
+entity_type = 1
+
+[node name="Enemy 3" parent="Map/Controller/Spawners" instance=ExtResource("11_x67tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 3, -4)
+entity_type = 1
+
+[node name="Enemy 4" parent="Map/Controller/Spawners" instance=ExtResource("11_x67tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 3, -6)
+entity_type = 1
+
+[node name="Enemy 5" parent="Map/Controller/Spawners" instance=ExtResource("11_x67tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 3, -5)
+entity_type = 1
+
+[node name="Enemy 6" parent="Map/Controller/Spawners" instance=ExtResource("11_x67tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 3, -5)
+entity_type = 1
+
+[node name="Enemy 7" parent="Map/Controller/Spawners" instance=ExtResource("11_x67tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 3, -4)
+entity_type = 1
+
+[node name="Enemy 8" parent="Map/Controller/Spawners" instance=ExtResource("11_x67tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 3, -5)
+entity_type = 1
+
+[connection signal="gui_input" from="GUI" to="GUI" method="_on_gui_input"]
+[connection signal="something_selected" from="GUI" to="GUI/MarginContainer/Action Bar" method="_on_gui_something_selected"]
+[connection signal="item_clicked" from="GUI/MarginContainer/Skeletons" to="GUI/MarginContainer/Skeletons" method="_on_item_clicked"]
+[connection signal="pressed" from="GUI/MarginContainer/End Turn" to="GUI/MarginContainer/turn profiles" method="_on_end_turn_pressed"]
+[connection signal="path_found" from="Map/Terrain" to="GUI/MarginContainer/turn profiles" method="_on_terrain_path_found"]
+[connection signal="parties_loaded" from="Map/Controller/Entities" to="GUI/MarginContainer/turn profiles" method="_on_entities_parties_loaded"]

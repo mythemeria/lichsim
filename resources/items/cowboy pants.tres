@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="EquipableItem" load_steps=3 format=3 uid="uid://dpq6p314qd6sg"]
+
+[ext_resource type="Texture2D" uid="uid://ciqfqaay8jm5o" path="res://assets/images/icons/equipment/cowboy pants.png" id="1_36drh"]
+[ext_resource type="Script" path="res://scripts/resources/equipable item.gd" id="2_1b2y5"]
+
+[resource]
+script = ExtResource("2_1b2y5")
+gear_slot = 2
+damage_buff = 0
+armour_buff = 0
+item_name = "cowboy pants"
+icon = ExtResource("1_36drh")
+stackable = false
+is_unique = false
+is_equipable = true

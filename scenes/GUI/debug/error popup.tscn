@@ -1,0 +1,54 @@
+[gd_scene load_steps=2 format=3 uid="uid://vncnq3frexrl"]
+
+[ext_resource type="Script" path="res://scripts/gui/error popup.gd" id="1_uhje1"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_uhje1")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer"]
+custom_minimum_size = Vector2(400, 200)
+layout_mode = 2
+
+[node name="CenterContainer2" type="CenterContainer" parent="CenterContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer/CenterContainer2"]
+custom_minimum_size = Vector2(280, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/PanelContainer/CenterContainer2/VBoxContainer"]
+layout_mode = 2
+text = "Error: placeholder"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="HSeparator" type="HSeparator" parent="CenterContainer/PanelContainer/CenterContainer2/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 11
+
+[node name="CenterContainer" type="CenterContainer" parent="CenterContainer/PanelContainer/CenterContainer2/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/PanelContainer/CenterContainer2/VBoxContainer/CenterContainer"]
+layout_mode = 2
+
+[node name="OK" type="Button" parent="CenterContainer/PanelContainer/CenterContainer2/VBoxContainer/CenterContainer/HBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+text = "OK"
+
+[connection signal="pressed" from="CenterContainer/PanelContainer/CenterContainer2/VBoxContainer/CenterContainer/HBoxContainer/OK" to="." method="_on_ok_pressed"]

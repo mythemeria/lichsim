@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://dokxmer64kjb1"]
+
+[ext_resource type="Script" path="res://scripts/entity/entity.gd" id="1_um3cy"]
+[ext_resource type="Texture2D" uid="uid://34hhcr0f2sc0" path="res://assets/images/enemy avatar.png" id="2_ia2cv"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_pfe5v"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_innes"]
+
+[node name="Enemy" type="CharacterBody3D" groups=["enemies", "entity"]]
+collision_layer = 3
+collision_mask = 5
+script = ExtResource("1_um3cy")
+max_hp = 10
+max_move = 5
+move_speed = 5
+affected_by_gravity = true
+is_selectable = true
+has_health = true
+has_health_bar = true
+intraversible = true
+body_type = 1
+entity_type = 1
+avatar = ExtResource("2_ia2cv")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.5, 0)
+shape = SubResource("CapsuleShape3D_pfe5v")
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.5, 0)
+mesh = SubResource("CapsuleMesh_innes")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

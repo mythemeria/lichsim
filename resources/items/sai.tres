@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="EquipableItem" load_steps=3 format=3 uid="uid://cd002cfxovew0"]
+
+[ext_resource type="Script" path="res://scripts/resources/equipable item.gd" id="1_bseb6"]
+[ext_resource type="Texture2D" uid="uid://d38b4v7iqhqpn" path="res://assets/images/icons/equipment/sai.png" id="1_lv2tj"]
+
+[resource]
+script = ExtResource("1_bseb6")
+gear_slot = 8
+damage_buff = 0
+armour_buff = 0
+item_name = "sai"
+icon = ExtResource("1_lv2tj")
+stackable = false
+is_unique = false
+is_equipable = true

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="EquipableItem" load_steps=3 format=3 uid="uid://1pdu2teopy10"]
+
+[ext_resource type="Texture2D" uid="uid://d2g3i3ttrihv0" path="res://assets/images/icons/equipment/hatchet.png" id="1_a3cto"]
+[ext_resource type="Script" path="res://scripts/resources/equipable item.gd" id="1_ue4ox"]
+
+[resource]
+script = ExtResource("1_ue4ox")
+gear_slot = 8
+damage_buff = 0
+armour_buff = 0
+item_name = "hatchet"
+icon = ExtResource("1_a3cto")
+stackable = false
+is_unique = false
+is_equipable = true

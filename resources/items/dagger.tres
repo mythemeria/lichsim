@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="EquipableItem" load_steps=3 format=3 uid="uid://8ib7ogjnlox8"]
+
+[ext_resource type="Script" path="res://scripts/resources/equipable item.gd" id="1_8uwmu"]
+[ext_resource type="Texture2D" uid="uid://dl31t7jk54exy" path="res://assets/images/icons/equipment/dagger.png" id="1_iotbn"]
+
+[resource]
+script = ExtResource("1_8uwmu")
+gear_slot = 8
+damage_buff = 0
+armour_buff = 0
+item_name = "dagger"
+icon = ExtResource("1_iotbn")
+stackable = false
+is_unique = false
+is_equipable = true

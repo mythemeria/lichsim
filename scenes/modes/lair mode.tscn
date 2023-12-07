@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://c50tmbbmysuio"]
+
+[ext_resource type="Script" path="res://scripts/gui/lair/GUI.gd" id="1_n45uo"]
+
+[node name="Lair Mode" type="Node3D"]
+
+[node name="GUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_n45uo")
+
+[node name="Unit creator" type="Button" parent="GUI"]
+layout_mode = 0
+offset_left = 44.0
+offset_top = 39.0
+offset_right = 187.0
+offset_bottom = 70.0
+focus_mode = 0
+text = "open unit creator"
+
+[connection signal="pressed" from="GUI/Unit creator" to="GUI" method="_on_button_pressed"]

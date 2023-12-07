@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="EquipableItem" load_steps=3 format=3 uid="uid://73cf7jcppq2p"]
+
+[ext_resource type="Texture2D" uid="uid://cv6tu76n20etb" path="res://assets/images/icons/equipment/violin.png" id="1_48wej"]
+[ext_resource type="Script" path="res://scripts/resources/equipable item.gd" id="1_meyjr"]
+
+[resource]
+script = ExtResource("1_meyjr")
+gear_slot = 8
+damage_buff = 0
+armour_buff = 0
+item_name = "violin"
+icon = ExtResource("1_48wej")
+stackable = false
+is_unique = false
+is_equipable = true

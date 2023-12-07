@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="EquipableItem" load_steps=5 format=3 uid="uid://bt4pdafnu2tj7"]
+
+[ext_resource type="Resource" uid="uid://c5tr1obyssi03" path="res://resources/actions/arrow.tres" id="1_sjnvt"]
+[ext_resource type="Texture2D" uid="uid://dri720npcra1r" path="res://assets/images/icons/equipment/bow.png" id="1_v6scy"]
+[ext_resource type="Script" path="res://scripts/resources/equipable item.gd" id="1_xfc03"]
+[ext_resource type="PackedScene" uid="uid://tm6agcisd1hf" path="res://assets/models/weapons/bow_evil.glb" id="2_07gr6"]
+
+[resource]
+script = ExtResource("1_xfc03")
+gear_slot = 8
+damage_buff = 0
+armour_buff = 0
+model = ExtResource("2_07gr6")
+icon = ExtResource("1_v6scy")
+stackable = false
+is_unique = false
+actions = Array[Resource]([ExtResource("1_sjnvt")])
+is_equipable = true

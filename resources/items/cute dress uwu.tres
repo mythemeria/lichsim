@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="EquipableItem" load_steps=3 format=3 uid="uid://r7islkohdaef"]
+
+[ext_resource type="Texture2D" uid="uid://ciakwyr66064v" path="res://assets/images/icons/equipment/cute dress uwu.png" id="1_yl0s6"]
+[ext_resource type="Script" path="res://scripts/resources/equipable item.gd" id="2_3qkv3"]
+
+[resource]
+script = ExtResource("2_3qkv3")
+gear_slot = 1
+damage_buff = 0
+armour_buff = 0
+item_name = "cute dress uwu"
+icon = ExtResource("1_yl0s6")
+stackable = false
+is_unique = false
+is_equipable = true

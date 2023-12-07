@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://b7uuapqt6aely"]
+
+[ext_resource type="Script" path="res://scripts/gui/lair/unit creator item box.gd" id="1_qudln"]
+[ext_resource type="LabelSettings" uid="uid://cqpvn727t0g8h" path="res://themes/item quantity label.tres" id="2_1c11n"]
+
+[node name="Button" type="Button"]
+texture_filter = 6
+custom_minimum_size = Vector2(40, 40)
+offset_right = 8.0
+offset_bottom = 8.0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+toggle_mode = true
+expand_icon = true
+script = ExtResource("1_qudln")
+
+[node name="Item Count" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+label_settings = ExtResource("2_1c11n")
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]
+[connection signal="toggled" from="." to="." method="_on_toggled"]

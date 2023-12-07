@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="EquipableItem" load_steps=3 format=3 uid="uid://uv2sv2n15pp8"]
+
+[ext_resource type="Script" path="res://scripts/resources/equipable item.gd" id="1_eixls"]
+[ext_resource type="Texture2D" uid="uid://1q5gi7n2i5nh" path="res://assets/images/icons/equipment/war axe.png" id="1_qx7nw"]
+
+[resource]
+script = ExtResource("1_eixls")
+gear_slot = 8
+damage_buff = 0
+armour_buff = 0
+item_name = "war axe"
+icon = ExtResource("1_qx7nw")
+stackable = false
+is_unique = false
+is_equipable = true

@@ -1,0 +1,39 @@
+res://scenes/modes/battle mode.tscn
+res://scripts/battle mode/party controller.gd
+res://themes/red button.tres
+res://themes/green button.tres
+res://assets/tileset3.tres
+res://resources/parties/test enemy party.tres
+res://resources/parties/test player party.tres
+res://themes/item quantity label.tres
+res://scripts/battle mode/battle cursor.gd
+res://scenes/modes/game.tscn
+res://scenes/battle mode/spawn_point.tscn
+res://scenes/entity/entity scenes/enemy.tscn
+res://scripts/battle mode/spawn point.gd
+res://scripts/Pathing.gd
+res://resources/gear presets/lich.tres
+res://scripts/gui/action bar.gd
+res://scripts/global/debug.gd
+res://scenes/entity/entity scenes/skeleton.tscn
+res://scripts/entity/entity.gd
+res://scripts/resources/entity data.gd
+res://resources/gear presets/enemy archer.tres
+res://resources/gear presets/enemy cleric.tres
+res://resources/gear presets/skeleton archer.tres
+res://resources/items/bow.tres
+res://scripts/global/enums.gd
+res://scripts/entity/equip data.gd
+res://scenes/GUI/turn profile.tscn
+res://scenes/GUI/turn profile container.tscn
+res://scripts/Turn Engine.gd
+res://scripts/gui/turn_profile.gd
+res://resources/actions/move.tres
+res://resources/actions/summon.tres
+res://scripts/entity/action.gd
+res://scripts/entity/attack.gd
+res://resources/actions/arrow.tres
+res://scripts/gui/lair/button.gd
+res://scripts/gui/lair/unit creator item box.gd
+res://scripts/entity/health.gd
+res://scripts/Skelly Select.gd

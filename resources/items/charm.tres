@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="EquipableItem" load_steps=3 format=3 uid="uid://ca334h1j5yh57"]
+
+[ext_resource type="Texture2D" uid="uid://gba6x67k1etp" path="res://assets/images/icons/equipment/charm.png" id="1_gqo3i"]
+[ext_resource type="Script" path="res://scripts/resources/equipable item.gd" id="2_5ouob"]
+
+[resource]
+script = ExtResource("2_5ouob")
+gear_slot = 5
+damage_buff = 0
+armour_buff = 0
+item_name = "charm"
+icon = ExtResource("1_gqo3i")
+stackable = false
+is_unique = false
+is_equipable = true

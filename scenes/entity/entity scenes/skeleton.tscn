@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://ckwqvm7hcw2tm"]
+
+[ext_resource type="Script" path="res://scripts/entity/entity.gd" id="1_ohi8k"]
+[ext_resource type="Texture2D" uid="uid://ct1g6scd842ad" path="res://assets/images/Skeletonicon.png" id="2_x2o47"]
+[ext_resource type="PackedScene" uid="uid://pg5y1sgdyu18" path="res://scenes/pogcapsule.tscn" id="3_1wo5e"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_y57yt"]
+
+[node name="Skeleton" type="CharacterBody3D" groups=["entities", "player"]]
+collision_layer = 3
+collision_mask = 5
+script = ExtResource("1_ohi8k")
+max_hp = 10
+max_move = 10
+move_speed = 10
+affected_by_gravity = true
+is_selectable = true
+has_health = true
+intraversible = true
+body_type = 1
+avatar = ExtResource("2_x2o47")
+
+[node name="capsule2pog" parent="." instance=ExtResource("3_1wo5e")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.5, 0)
+shape = SubResource("CapsuleShape3D_y57yt")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

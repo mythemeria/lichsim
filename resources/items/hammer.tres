@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="EquipableItem" load_steps=3 format=3 uid="uid://dpnhb1wamrgu8"]
+
+[ext_resource type="Script" path="res://scripts/resources/equipable item.gd" id="1_4hiql"]
+[ext_resource type="Texture2D" uid="uid://wxe8pei7d2iw" path="res://assets/images/icons/equipment/hammer.png" id="1_is38b"]
+
+[resource]
+script = ExtResource("1_4hiql")
+gear_slot = 8
+damage_buff = 0
+armour_buff = 0
+item_name = "hammer"
+icon = ExtResource("1_is38b")
+stackable = false
+is_unique = false
+is_equipable = true

@@ -1,0 +1,41 @@
+[gd_scene load_steps=4 format=3 uid="uid://d3pc04x06cm4i"]
+
+[ext_resource type="Script" path="res://scripts/map mode/graph.gd" id="1_3i6gk"]
+[ext_resource type="Script" path="res://scripts/camera/map camera.gd" id="1_w2nq1"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_uxglw"]
+size = Vector2(40, 40)
+
+[node name="Map Mode" type="Node3D"]
+
+[node name="GUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Map" type="Node3D" parent="."]
+
+[node name="Graph" type="Node3D" parent="Map"]
+script = ExtResource("1_3i6gk")
+
+[node name="Cam Base" type="Node3D" parent="Map"]
+script = ExtResource("1_w2nq1")
+
+[node name="Camera3D" type="Camera3D" parent="Map/Cam Base"]
+transform = Transform3D(1, 0, 0, 0, 0.772312, 0.635243, 0, -0.635243, 0.772312, 0, 10.4879, 15.4125)
+projection = 1
+size = 20.0
+
+[node name="Terrain" type="Node3D" parent="Map"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Map/Terrain"]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="Map/Terrain/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+polygon = PackedVector2Array(20, -20, 20, 20, -20, 20, -20, -20)
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="Map/Terrain/StaticBody3D"]
+mesh = SubResource("PlaneMesh_uxglw")

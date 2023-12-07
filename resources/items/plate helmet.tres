@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="EquipableItem" load_steps=3 format=3 uid="uid://dgehgwbo0g3ek"]
+
+[ext_resource type="Texture2D" uid="uid://bablt28tfpbnm" path="res://assets/images/icons/equipment/plate helmet.png" id="1_st7ep"]
+[ext_resource type="Script" path="res://scripts/resources/equipable item.gd" id="2_1b22d"]
+
+[resource]
+script = ExtResource("2_1b22d")
+gear_slot = 0
+damage_buff = 0
+armour_buff = 0
+item_name = "plate helmet"
+icon = ExtResource("1_st7ep")
+stackable = false
+is_unique = false
+is_equipable = true

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="EquipableItem" load_steps=3 format=3 uid="uid://cqijgvp7fjgq2"]
+
+[ext_resource type="Texture2D" uid="uid://b14qaqfarbwp6" path="res://assets/images/icons/equipment/panpipes.png" id="1_c5pov"]
+[ext_resource type="Script" path="res://scripts/resources/equipable item.gd" id="1_kgh8f"]
+
+[resource]
+script = ExtResource("1_kgh8f")
+gear_slot = 8
+damage_buff = 0
+armour_buff = 0
+item_name = "panpipes"
+icon = ExtResource("1_c5pov")
+stackable = false
+is_unique = false
+is_equipable = true

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="EquipableItem" load_steps=3 format=3 uid="uid://no60i3ahvuo7"]
+
+[ext_resource type="Texture2D" uid="uid://cdgt5gaivbe5g" path="res://assets/images/icons/equipment/stell sword.png" id="1_8m4ev"]
+[ext_resource type="Script" path="res://scripts/resources/equipable item.gd" id="1_qww2f"]
+
+[resource]
+script = ExtResource("1_qww2f")
+gear_slot = 8
+damage_buff = 0
+armour_buff = 0
+item_name = "steel sword"
+icon = ExtResource("1_8m4ev")
+stackable = false
+is_unique = false
+is_equipable = true

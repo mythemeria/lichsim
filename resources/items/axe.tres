@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="EquipableItem" load_steps=3 format=3 uid="uid://cymqd02wqik7q"]
+
+[ext_resource type="Texture2D" uid="uid://cyvu00o4dq6sa" path="res://assets/images/icons/equipment/axe.png" id="1_nd5e4"]
+[ext_resource type="Script" path="res://scripts/resources/equipable item.gd" id="1_x2epr"]
+
+[resource]
+script = ExtResource("1_x2epr")
+gear_slot = 8
+damage_buff = 0
+armour_buff = 0
+item_name = "axe"
+icon = ExtResource("1_nd5e4")
+stackable = false
+is_unique = false
+is_equipable = true

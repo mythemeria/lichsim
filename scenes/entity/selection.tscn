@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://bj6e5uh3a16ys"]
+
+[ext_resource type="Script" path="res://scripts/entity/selection.gd" id="1_7rcvh"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_3g7b4"]
+load_path = "res://.godot/imported/selection.png-7b7d4ee0d7be9196bfaf9e443eeffd2f.s3tc.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lof54"]
+transparency = 1
+shading_mode = 0
+albedo_texture = SubResource("CompressedTexture2D_3g7b4")
+texture_filter = 5
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_qhgvm"]
+material = SubResource("StandardMaterial3D_lof54")
+size = Vector2(0.9, 0.9)
+center_offset = Vector3(0, 0.1, 0)
+
+[node name="Selection" type="Node3D"]
+script = ExtResource("1_7rcvh")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+visible = false
+mesh = SubResource("PlaneMesh_qhgvm")

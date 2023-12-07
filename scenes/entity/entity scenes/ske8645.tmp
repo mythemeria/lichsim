@@ -1,0 +1,53 @@
+[gd_scene load_steps=9 format=3 uid="uid://ckwqvm7hcw2tm"]
+
+[ext_resource type="Script" path="res://scripts/entity/skeleton.gd" id="1_t5aba"]
+[ext_resource type="Texture2D" uid="uid://b3q0opirp0u2r" path="res://assets/models/terrain meshes/Skeletonicon.png" id="2_5ecpe"]
+[ext_resource type="PackedScene" uid="uid://pg5y1sgdyu18" path="res://scenes/skelly/pogcapsule.tscn" id="4_8fvx5"]
+[ext_resource type="PackedScene" uid="uid://6fhjsg38trhj" path="res://scenes/entity/equip data.tscn" id="4_773aw"]
+[ext_resource type="Script" path="res://scripts/resources/gear.gd" id="5_rgav2"]
+[ext_resource type="Resource" uid="uid://bt4pdafnu2tj7" path="res://resources/items/bow.tres" id="6_8u3ge"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7ph3b"]
+
+[sub_resource type="Resource" id="Resource_21eya"]
+script = ExtResource("5_rgav2")
+body_type = null
+slots = {
+0: null,
+1: null,
+2: null,
+3: null,
+4: null,
+5: null,
+6: null,
+7: null,
+8: ExtResource("6_8u3ge"),
+9: null
+}
+
+[node name="Skeleton" type="CharacterBody3D" groups=["dudes"]]
+collision_layer = 3
+collision_mask = 5
+script = ExtResource("1_t5aba")
+max_hp = 10
+max_move = 5
+move_speed = 5
+affected_by_gravity = true
+is_selectable = true
+has_health = true
+intraversible = true
+body_type = 1
+avatar = ExtResource("2_5ecpe")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_7ph3b")
+
+[node name="capsule2pog" parent="." instance=ExtResource("4_8fvx5")]
+transform = Transform3D(25, 0, 0, 0, 25, 0, 0, 0, 25, 0, 0, 0)
+
+[node name="equip data" parent="." instance=ExtResource("4_773aw")]
+gear = SubResource("Resource_21eya")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

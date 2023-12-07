@@ -1,0 +1,39 @@
+[gd_scene load_steps=2 format=3 uid="uid://c67gox2bvk5yb"]
+
+[ext_resource type="Script" path="res://scripts/gui/load game menu.gd" id="1_adhcq"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_adhcq")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(530, 384)
+layout_mode = 2
+
+[node name="Save List" type="VBoxContainer" parent="CenterContainer/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Back Button" type="Button" parent="CenterContainer/VBoxContainer/CenterContainer"]
+layout_mode = 2
+text = "Back"
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/CenterContainer/Back Button" to="." method="_on_back_button_pressed"]

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cut7w63xi84tp"]
+
+[ext_resource type="Script" path="res://scripts/gui/load_save_button.gd" id="1_v5x0f"]
+
+[node name="Button" type="Button"]
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("1_v5x0f")

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="EquipableItem" load_steps=3 format=3 uid="uid://cdahoorhha6ca"]
+
+[ext_resource type="Texture2D" uid="uid://cuqlgdo0u48ab" path="res://assets/images/icons/equipment/diamond ring.png" id="1_wg6bh"]
+[ext_resource type="Script" path="res://scripts/resources/equipable item.gd" id="2_jtfvd"]
+
+[resource]
+script = ExtResource("2_jtfvd")
+gear_slot = 7
+damage_buff = 0
+armour_buff = 0
+item_name = "diamond ring"
+icon = ExtResource("1_wg6bh")
+stackable = false
+is_unique = false
+is_equipable = true

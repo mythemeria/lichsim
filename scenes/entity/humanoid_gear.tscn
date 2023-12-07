@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dy08ts7hgdgqu"]
+
+[ext_resource type="Script" path="res://scripts/entity/gear.gd" id="1_dwnr6"]
+
+[node name="Humanoid gear" type="Node" groups=["gear"]]
+script = ExtResource("1_dwnr6")
+body_type = 1

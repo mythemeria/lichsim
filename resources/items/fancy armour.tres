@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="EquipableItem" load_steps=3 format=3 uid="uid://bsluyjgjao1cr"]
+
+[ext_resource type="Texture2D" uid="uid://dc1jp3fec7hm2" path="res://assets/images/icons/equipment/fancy armour.png" id="1_0j0gb"]
+[ext_resource type="Script" path="res://scripts/resources/equipable item.gd" id="2_gkkkb"]
+
+[resource]
+script = ExtResource("2_gkkkb")
+gear_slot = 1
+damage_buff = 0
+armour_buff = 0
+item_name = "fancy armour"
+icon = ExtResource("1_0j0gb")
+stackable = false
+is_unique = false
+is_equipable = true

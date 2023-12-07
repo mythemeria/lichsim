@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="EquipableItem" load_steps=3 format=3 uid="uid://cubivcm0s2ut8"]
+
+[ext_resource type="Texture2D" uid="uid://dvgos68fxp1n0" path="res://assets/images/icons/equipment/staff 5.png" id="1_dfyvo"]
+[ext_resource type="Script" path="res://scripts/resources/equipable item.gd" id="1_h2ilh"]
+
+[resource]
+script = ExtResource("1_h2ilh")
+gear_slot = 8
+damage_buff = 0
+armour_buff = 0
+item_name = "orange staff"
+icon = ExtResource("1_dfyvo")
+stackable = false
+is_unique = false
+is_equipable = true

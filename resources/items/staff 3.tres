@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="EquipableItem" load_steps=3 format=3 uid="uid://cp8tmpcnftyom"]
+
+[ext_resource type="Script" path="res://scripts/resources/equipable item.gd" id="1_b00q3"]
+[ext_resource type="Texture2D" uid="uid://c5lvl7me6axcy" path="res://assets/images/icons/equipment/staff 3.png" id="1_ecchy"]
+
+[resource]
+script = ExtResource("1_b00q3")
+gear_slot = 8
+damage_buff = 0
+armour_buff = 0
+item_name = "red staff"
+icon = ExtResource("1_ecchy")
+stackable = false
+is_unique = false
+is_equipable = true

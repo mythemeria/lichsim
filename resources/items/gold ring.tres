@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="EquipableItem" load_steps=3 format=3 uid="uid://6b2uugs10oev"]
+
+[ext_resource type="Texture2D" uid="uid://dsshxf0v8ql2h" path="res://assets/images/icons/equipment/gold ring.png" id="1_sfsb2"]
+[ext_resource type="Script" path="res://scripts/resources/equipable item.gd" id="2_2rff1"]
+
+[resource]
+script = ExtResource("2_2rff1")
+gear_slot = 7
+damage_buff = 0
+armour_buff = 0
+item_name = "gold ring"
+icon = ExtResource("1_sfsb2")
+stackable = false
+is_unique = false
+is_equipable = true

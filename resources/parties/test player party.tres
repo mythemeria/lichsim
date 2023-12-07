@@ -1,0 +1,41 @@
+[gd_resource type="Resource" load_steps=10 format=3 uid="uid://o0bs2ymqgksl"]
+
+[ext_resource type="PackedScene" uid="uid://ckwqvm7hcw2tm" path="res://scenes/entity/entity scenes/skeleton.tscn" id="1_4cj6x"]
+[ext_resource type="Resource" uid="uid://c7www5p7db42t" path="res://resources/actions/summon.tres" id="1_54owj"]
+[ext_resource type="Resource" uid="uid://dgip0vw4gnoru" path="res://resources/gear presets/lich.tres" id="1_wk6v5"]
+[ext_resource type="Script" path="res://scripts/resources/party.gd" id="1_yd4xh"]
+[ext_resource type="Resource" uid="uid://dkl5culmgvypf" path="res://resources/actions/move.tres" id="2_2mpq7"]
+[ext_resource type="Script" path="res://scripts/resources/entity data.gd" id="2_r71el"]
+[ext_resource type="Resource" uid="uid://bakdypn6medug" path="res://resources/gear presets/skeleton archer.tres" id="4_s2k55"]
+
+[sub_resource type="Resource" id="Resource_qpvb3"]
+script = ExtResource("2_r71el")
+scene = ExtResource("1_4cj6x")
+override_gear = true
+gear = ExtResource("1_wk6v5")
+additional_actions = Array[Resource]([ExtResource("1_54owj"), ExtResource("2_2mpq7")])
+override_stats = false
+max_hp = 0
+strength = 0
+magic = 0
+max_move = 0
+move_speed = 0
+override_avatar = false
+
+[sub_resource type="Resource" id="Resource_hlnar"]
+script = ExtResource("2_r71el")
+scene = ExtResource("1_4cj6x")
+override_gear = true
+gear = ExtResource("4_s2k55")
+additional_actions = Array[Resource]([ExtResource("2_2mpq7")])
+override_stats = false
+max_hp = 0
+strength = 0
+magic = 0
+max_move = 0
+move_speed = 0
+override_avatar = false
+
+[resource]
+script = ExtResource("1_yd4xh")
+party_members = Array[ExtResource("2_r71el")]([SubResource("Resource_qpvb3"), SubResource("Resource_hlnar")])

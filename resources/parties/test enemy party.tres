@@ -1,0 +1,39 @@
+[gd_resource type="Resource" load_steps=8 format=3 uid="uid://s2400x8c3840"]
+
+[ext_resource type="Script" path="res://scripts/resources/entity data.gd" id="1_6utmm"]
+[ext_resource type="Script" path="res://scripts/resources/party.gd" id="1_n7ag6"]
+[ext_resource type="Resource" uid="uid://cc2o7myfm5ufr" path="res://resources/gear presets/enemy archer.tres" id="1_q5hf4"]
+[ext_resource type="PackedScene" uid="uid://dokxmer64kjb1" path="res://scenes/entity/entity scenes/enemy.tscn" id="2_1fyjg"]
+[ext_resource type="Resource" uid="uid://c0eex1euq8gqf" path="res://resources/gear presets/enemy cleric.tres" id="3_o0qxo"]
+
+[sub_resource type="Resource" id="Resource_wv8po"]
+script = ExtResource("1_6utmm")
+scene = ExtResource("2_1fyjg")
+override_gear = true
+gear = ExtResource("1_q5hf4")
+additional_actions = Array[Resource]([])
+override_stats = false
+max_hp = 0
+strength = 0
+magic = 0
+max_move = 0
+move_speed = 0
+override_avatar = false
+
+[sub_resource type="Resource" id="Resource_dn1lv"]
+script = ExtResource("1_6utmm")
+scene = ExtResource("2_1fyjg")
+override_gear = true
+gear = ExtResource("3_o0qxo")
+additional_actions = Array[Resource]([])
+override_stats = false
+max_hp = 0
+strength = 0
+magic = 0
+max_move = 0
+move_speed = 0
+override_avatar = false
+
+[resource]
+script = ExtResource("1_n7ag6")
+party_members = Array[ExtResource("1_6utmm")]([SubResource("Resource_wv8po"), SubResource("Resource_dn1lv")])

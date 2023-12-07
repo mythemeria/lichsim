@@ -1,0 +1,64 @@
+[gd_scene load_steps=7 format=3 uid="uid://dl3am4tjnjf6n"]
+
+[ext_resource type="Script" path="res://scripts/gui/save slot.gd" id="1_53ags"]
+[ext_resource type="Theme" uid="uid://bmiml2c7kbpti" path="res://themes/red button.tres" id="1_tnlv6"]
+[ext_resource type="Texture2D" uid="uid://bkxmemeep466s" path="res://assets/images/icons/trashcan.png" id="2_l6ufd"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4vhae"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mst3o"]
+bg_color = Color(0.129412, 0.129412, 0.129412, 0.32549)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h8621"]
+bg_color = Color(0.129412, 0.129412, 0.129412, 1)
+
+[node name="MarginContainer" type="MarginContainer"]
+script = ExtResource("1_53ags")
+
+[node name="slot highlight" type="Button" parent="."]
+layout_mode = 2
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_4vhae")
+theme_override_styles/hover = SubResource("StyleBoxFlat_mst3o")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_h8621")
+toggle_mode = true
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 45
+
+[node name="save name" type="Label" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+auto_translate = false
+localize_numeral_system = false
+theme_override_colors/font_color = Color(0.788235, 0.788235, 0.788235, 1)
+theme_override_font_sizes/font_size = 12
+
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+mouse_filter = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="delete save" type="Button" parent="MarginContainer2"]
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+theme = ExtResource("1_tnlv6")
+theme_override_colors/icon_normal_color = Color(0.811765, 0, 0, 1)
+theme_override_colors/icon_pressed_color = Color(0.384314, 0, 0, 1)
+theme_override_colors/icon_hover_color = Color(0.607843, 0, 0, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0.384314, 0, 0, 1)
+icon = ExtResource("2_l6ufd")
+icon_alignment = 1
+
+[connection signal="toggled" from="slot highlight" to="." method="_on_slot_highlight_toggled"]
+[connection signal="pressed" from="MarginContainer2/delete save" to="." method="_on_delete_save_pressed"]

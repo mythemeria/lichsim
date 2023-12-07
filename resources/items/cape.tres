@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="EquipableItem" load_steps=3 format=3 uid="uid://dexack1ypm6aq"]
+
+[ext_resource type="Texture2D" uid="uid://c3hqhbw4oqldq" path="res://assets/images/icons/equipment/cape.png" id="1_w8gcq"]
+[ext_resource type="Script" path="res://scripts/resources/equipable item.gd" id="2_i0gvm"]
+
+[resource]
+script = ExtResource("2_i0gvm")
+gear_slot = 4
+damage_buff = 0
+armour_buff = 0
+item_name = "cape"
+icon = ExtResource("1_w8gcq")
+stackable = false
+is_unique = false
+is_equipable = true

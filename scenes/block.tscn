@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://ddbgu4cf7dvo2"]
+
+[ext_resource type="Script" path="res://scripts/entity/environment.gd" id="1_k5spa"]
+[ext_resource type="PackedScene" uid="uid://cpvvngsoqg0if" path="res://assets/models/terrain meshes/block.glb" id="2_bu5nw"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0scio"]
+
+[node name="CharacterBody3D" type="CharacterBody3D"]
+collision_layer = 3
+collision_mask = 5
+script = ExtResource("1_k5spa")
+max_hp = 1
+affected_by_gravity = true
+has_health = true
+intraversible = true
+entity_type = 2
+
+[node name="block" parent="." instance=ExtResource("2_bu5nw")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_0scio")

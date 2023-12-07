@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="EquipableItem" load_steps=3 format=3 uid="uid://bx8w0mhvf3i6k"]
+
+[ext_resource type="Texture2D" uid="uid://cos6k0oymp6g6" path="res://assets/images/icons/equipment/cloth cap.png" id="1_fuywt"]
+[ext_resource type="Script" path="res://scripts/resources/equipable item.gd" id="2_bq2d8"]
+
+[resource]
+script = ExtResource("2_bq2d8")
+gear_slot = 0
+damage_buff = 0
+armour_buff = 0
+item_name = "cloth cap"
+icon = ExtResource("1_fuywt")
+stackable = false
+is_unique = false
+is_equipable = true

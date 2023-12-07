@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="EquipableItem" load_steps=3 format=3 uid="uid://dacixsng1pd57"]
+
+[ext_resource type="Texture2D" uid="uid://mj6sjxa64dve" path="res://assets/images/icons/equipment/grimoire 1.png" id="1_oepei"]
+[ext_resource type="Script" path="res://scripts/resources/equipable item.gd" id="2_74nb1"]
+
+[resource]
+script = ExtResource("2_74nb1")
+gear_slot = 8
+damage_buff = 0
+armour_buff = 0
+item_name = "grimoire 1"
+icon = ExtResource("1_oepei")
+stackable = false
+is_unique = false
+is_equipable = true

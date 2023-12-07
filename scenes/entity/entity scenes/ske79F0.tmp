@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://ckwqvm7hcw2tm"]
+
+[ext_resource type="Script" path="res://scripts/entity/skeleton.gd" id="1_t5aba"]
+[ext_resource type="Texture2D" uid="uid://b3q0opirp0u2r" path="res://assets/models/terrain meshes/Skeletonicon.png" id="2_5ecpe"]
+[ext_resource type="PackedScene" uid="uid://pg5y1sgdyu18" path="res://scenes/skelly/pogcapsule.tscn" id="4_8fvx5"]
+[ext_resource type="PackedScene" uid="uid://dy08ts7hgdgqu" path="res://scenes/entity/humanoid_gear.tscn" id="4_bd8uq"]
+[ext_resource type="PackedScene" uid="uid://ggl101rxpbv7" path="res://scenes/weapons/bow.tscn" id="4_ye42d"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7ph3b"]
+
+[node name="Skeleton" type="CharacterBody3D" groups=["dudes"]]
+collision_layer = 3
+collision_mask = 5
+script = ExtResource("1_t5aba")
+max_hp = 10
+max_move = 5
+move_speed = 5
+affected_by_gravity = true
+is_selectable = true
+has_health = true
+intraversible = true
+body_type = 1
+avatar = ExtResource("2_5ecpe")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_7ph3b")
+
+[node name="capsule2pog" parent="." instance=ExtResource("4_8fvx5")]
+transform = Transform3D(25, 0, 0, 0, 25, 0, 0, 0, 25, 0, 0, 0)
+
+[node name="Humanoid gear" parent="." instance=ExtResource("4_bd8uq")]
+
+[node name="Bow" parent="Humanoid gear" instance=ExtResource("4_ye42d")]
+transform = Transform3D(0.535871, 0, 0.8443, 0, 1, 0, -0.8443, 0, 0.535871, 0.290466, 0, 0.214844)
+slot = 3
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

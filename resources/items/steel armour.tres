@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="EquipableItem" load_steps=3 format=3 uid="uid://crfe17p70l4m1"]
+
+[ext_resource type="Texture2D" uid="uid://d1ccadg5cgy7p" path="res://assets/images/icons/equipment/steel armour.png" id="1_33ogp"]
+[ext_resource type="Script" path="res://scripts/resources/equipable item.gd" id="2_hhx5n"]
+
+[resource]
+script = ExtResource("2_hhx5n")
+gear_slot = 1
+damage_buff = 0
+armour_buff = 0
+item_name = "steel armour"
+icon = ExtResource("1_33ogp")
+stackable = false
+is_unique = false
+is_equipable = true

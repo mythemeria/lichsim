@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="EquipableItem" load_steps=3 format=3 uid="uid://2hlphwbich3d"]
+
+[ext_resource type="Texture2D" uid="uid://c5mds8263p0n" path="res://assets/images/icons/equipment/recorder.png" id="1_22d2s"]
+[ext_resource type="Script" path="res://scripts/resources/equipable item.gd" id="1_f33ge"]
+
+[resource]
+script = ExtResource("1_f33ge")
+gear_slot = 8
+damage_buff = 0
+armour_buff = 0
+item_name = "recorder"
+icon = ExtResource("1_22d2s")
+stackable = false
+is_unique = false
+is_equipable = true

@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://cqjsp0rxf8j1j"]
+
+[ext_resource type="Script" path="res://scripts/Turn Engine.gd" id="1_kwc7b"]
+
+[node name="Control" type="ScrollContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -933.0
+offset_bottom = -568.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+script = ExtResource("1_kwc7b")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+alignment = 1

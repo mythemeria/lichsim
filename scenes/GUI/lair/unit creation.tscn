@@ -1,0 +1,252 @@
+[gd_scene load_steps=14 format=3 uid="uid://dksxc0g5g5hiw"]
+
+[ext_resource type="Script" path="res://scripts/gui/lair/unit creation.gd" id="1_kexf2"]
+[ext_resource type="PackedScene" uid="uid://b7uuapqt6aely" path="res://scenes/GUI/inventory/item box.tscn" id="2_6gptk"]
+[ext_resource type="Texture2D" uid="uid://kqhgd8efisa1" path="res://assets/images/icons/equip/cape.png" id="3_xg1gw"]
+[ext_resource type="Texture2D" uid="uid://spdpyi0q8xdq" path="res://assets/images/icons/equip/amulet.png" id="4_umtvc"]
+[ext_resource type="Texture2D" uid="uid://c7gfrrcvptj32" path="res://assets/images/icons/equip/gloves.png" id="5_p3lkx"]
+[ext_resource type="Texture2D" uid="uid://dijaxrwhhj533" path="res://assets/images/icons/equip/ring.png" id="6_42bpq"]
+[ext_resource type="Texture2D" uid="uid://bfc31mveytl67" path="res://assets/images/icons/equip/helm.png" id="7_yhdrx"]
+[ext_resource type="Texture2D" uid="uid://72muxhuoxxui" path="res://assets/images/icons/equip/chest.png" id="8_67rvm"]
+[ext_resource type="Texture2D" uid="uid://dkofmcudf3tcl" path="res://assets/images/icons/equip/pants.png" id="9_n6o4p"]
+[ext_resource type="Texture2D" uid="uid://sknllaqyg5v8" path="res://assets/images/icons/equip/boots.png" id="10_c3h3a"]
+[ext_resource type="Texture2D" uid="uid://dfbw4waiphhvg" path="res://assets/images/icons/equip/weapon.png" id="11_5686x"]
+[ext_resource type="Texture2D" uid="uid://dy610b346qifb" path="res://assets/images/icons/equip/shield.png" id="12_lsrl8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tvhok"]
+bg_color = Color(0.0745098, 0.0745098, 0.0745098, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kexf2")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="Panel2" type="Panel" parent="CenterContainer/HBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/HBoxContainer/Panel2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CenterContainer/HBoxContainer/Panel2/MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/HBoxContainer/Panel2/MarginContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Button" type="Button" parent="CenterContainer/HBoxContainer/Panel2/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+text = "NEW PRESET"
+
+[node name="HSeparator" type="HSeparator" parent="CenterContainer/HBoxContainer/Panel2/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="CenterContainer/HBoxContainer"]
+custom_minimum_size = Vector2(678, 500)
+layout_mode = 2
+
+[node name="margin" type="MarginContainer" parent="CenterContainer/HBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/HBoxContainer/Panel/margin"]
+layout_mode = 2
+theme_override_constants/separation = 25
+
+[node name="vbox" type="VBoxContainer" parent="CenterContainer/HBoxContainer/Panel/margin/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Equip" type="Panel" parent="CenterContainer/HBoxContainer/Panel/margin/HBoxContainer/vbox"]
+custom_minimum_size = Vector2(270, 430)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="mar" type="MarginContainer" parent="CenterContainer/HBoxContainer/Panel/margin/HBoxContainer/vbox/Equip"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="slots1" type="VBoxContainer" parent="CenterContainer/HBoxContainer/Panel/margin/HBoxContainer/vbox/Equip/mar"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+
+[node name="cape" parent="CenterContainer/HBoxContainer/Panel/margin/HBoxContainer/vbox/Equip/mar/slots1" instance=ExtResource("2_6gptk")]
+layout_mode = 2
+toggle_mode = false
+icon = ExtResource("3_xg1gw")
+max_stack = 1
+default_icon = ExtResource("3_xg1gw")
+slot_id = 4
+
+[node name="amulet" parent="CenterContainer/HBoxContainer/Panel/margin/HBoxContainer/vbox/Equip/mar/slots1" instance=ExtResource("2_6gptk")]
+layout_mode = 2
+toggle_mode = false
+icon = ExtResource("4_umtvc")
+max_stack = 1
+default_icon = ExtResource("4_umtvc")
+slot_id = 5
+
+[node name="gloves" parent="CenterContainer/HBoxContainer/Panel/margin/HBoxContainer/vbox/Equip/mar/slots1" instance=ExtResource("2_6gptk")]
+layout_mode = 2
+toggle_mode = false
+icon = ExtResource("5_p3lkx")
+max_stack = 1
+default_icon = ExtResource("5_p3lkx")
+slot_id = 6
+
+[node name="ring" parent="CenterContainer/HBoxContainer/Panel/margin/HBoxContainer/vbox/Equip/mar/slots1" instance=ExtResource("2_6gptk")]
+layout_mode = 2
+toggle_mode = false
+icon = ExtResource("6_42bpq")
+max_stack = 1
+default_icon = ExtResource("6_42bpq")
+slot_id = 7
+
+[node name="slots2" type="VBoxContainer" parent="CenterContainer/HBoxContainer/Panel/margin/HBoxContainer/vbox/Equip/mar"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="helmet" parent="CenterContainer/HBoxContainer/Panel/margin/HBoxContainer/vbox/Equip/mar/slots2" instance=ExtResource("2_6gptk")]
+layout_mode = 2
+toggle_mode = false
+icon = ExtResource("7_yhdrx")
+max_stack = 1
+default_icon = ExtResource("7_yhdrx")
+
+[node name="chest" parent="CenterContainer/HBoxContainer/Panel/margin/HBoxContainer/vbox/Equip/mar/slots2" instance=ExtResource("2_6gptk")]
+layout_mode = 2
+toggle_mode = false
+icon = ExtResource("8_67rvm")
+max_stack = 1
+default_icon = ExtResource("8_67rvm")
+slot_id = 1
+
+[node name="legs" parent="CenterContainer/HBoxContainer/Panel/margin/HBoxContainer/vbox/Equip/mar/slots2" instance=ExtResource("2_6gptk")]
+layout_mode = 2
+toggle_mode = false
+icon = ExtResource("9_n6o4p")
+max_stack = 1
+default_icon = ExtResource("9_n6o4p")
+slot_id = 2
+
+[node name="boots" parent="CenterContainer/HBoxContainer/Panel/margin/HBoxContainer/vbox/Equip/mar/slots2" instance=ExtResource("2_6gptk")]
+layout_mode = 2
+toggle_mode = false
+icon = ExtResource("10_c3h3a")
+max_stack = 1
+default_icon = ExtResource("10_c3h3a")
+slot_id = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/HBoxContainer/Panel/margin/HBoxContainer/vbox/Equip/mar"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+
+[node name="weapon" parent="CenterContainer/HBoxContainer/Panel/margin/HBoxContainer/vbox/Equip/mar/HBoxContainer" instance=ExtResource("2_6gptk")]
+layout_mode = 2
+toggle_mode = false
+icon = ExtResource("11_5686x")
+max_stack = 1
+default_icon = ExtResource("11_5686x")
+slot_id = 8
+
+[node name="shield" parent="CenterContainer/HBoxContainer/Panel/margin/HBoxContainer/vbox/Equip/mar/HBoxContainer" instance=ExtResource("2_6gptk")]
+layout_mode = 2
+toggle_mode = false
+icon = ExtResource("12_lsrl8")
+max_stack = 1
+default_icon = ExtResource("12_lsrl8")
+slot_id = 9
+
+[node name="CenterContainer" type="CenterContainer" parent="CenterContainer/HBoxContainer/Panel/margin/HBoxContainer/vbox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/HBoxContainer/Panel/margin/HBoxContainer/vbox/CenterContainer"]
+layout_mode = 2
+
+[node name="TextEdit" type="TextEdit" parent="CenterContainer/HBoxContainer/Panel/margin/HBoxContainer/vbox/CenterContainer/HBoxContainer"]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxFlat_tvhok")
+placeholder_text = "unit name"
+scroll_fit_content_height = true
+
+[node name="Button" type="Button" parent="CenterContainer/HBoxContainer/Panel/margin/HBoxContainer/vbox/CenterContainer/HBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+text = "Save unit"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CenterContainer/HBoxContainer/Panel/margin/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="GridContainer" type="GridContainer" parent="CenterContainer/HBoxContainer/Panel/margin/HBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+columns = 8
+
+[connection signal="pressed" from="CenterContainer/HBoxContainer/Panel2/MarginContainer/ScrollContainer/VBoxContainer/Button" to="." method="_on_new_preset"]
+[connection signal="box_pressed" from="CenterContainer/HBoxContainer/Panel/margin/HBoxContainer/vbox/Equip/mar/slots1/cape" to="." method="_on_equip_slot_pressed"]
+[connection signal="box_pressed" from="CenterContainer/HBoxContainer/Panel/margin/HBoxContainer/vbox/Equip/mar/slots1/amulet" to="." method="_on_equip_slot_pressed"]
+[connection signal="box_pressed" from="CenterContainer/HBoxContainer/Panel/margin/HBoxContainer/vbox/Equip/mar/slots1/gloves" to="." method="_on_equip_slot_pressed"]
+[connection signal="box_pressed" from="CenterContainer/HBoxContainer/Panel/margin/HBoxContainer/vbox/Equip/mar/slots1/ring" to="." method="_on_equip_slot_pressed"]
+[connection signal="box_pressed" from="CenterContainer/HBoxContainer/Panel/margin/HBoxContainer/vbox/Equip/mar/slots2/helmet" to="." method="_on_equip_slot_pressed"]
+[connection signal="box_pressed" from="CenterContainer/HBoxContainer/Panel/margin/HBoxContainer/vbox/Equip/mar/slots2/chest" to="." method="_on_equip_slot_pressed"]
+[connection signal="box_pressed" from="CenterContainer/HBoxContainer/Panel/margin/HBoxContainer/vbox/Equip/mar/slots2/legs" to="." method="_on_equip_slot_pressed"]
+[connection signal="box_pressed" from="CenterContainer/HBoxContainer/Panel/margin/HBoxContainer/vbox/Equip/mar/slots2/boots" to="." method="_on_equip_slot_pressed"]
+[connection signal="box_pressed" from="CenterContainer/HBoxContainer/Panel/margin/HBoxContainer/vbox/Equip/mar/HBoxContainer/weapon" to="." method="_on_equip_slot_pressed"]
+[connection signal="box_pressed" from="CenterContainer/HBoxContainer/Panel/margin/HBoxContainer/vbox/Equip/mar/HBoxContainer/shield" to="." method="_on_equip_slot_pressed"]
+[connection signal="text_changed" from="CenterContainer/HBoxContainer/Panel/margin/HBoxContainer/vbox/CenterContainer/HBoxContainer/TextEdit" to="." method="_on_text_changed"]
+[connection signal="pressed" from="CenterContainer/HBoxContainer/Panel/margin/HBoxContainer/vbox/CenterContainer/HBoxContainer/Button" to="." method="_on_save_pressed"]

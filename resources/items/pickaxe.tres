@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="EquipableItem" load_steps=3 format=3 uid="uid://bsub6a8gmbh5u"]
+
+[ext_resource type="Script" path="res://scripts/resources/equipable item.gd" id="1_fl0ce"]
+[ext_resource type="Texture2D" uid="uid://bbfjlfb2k4a16" path="res://assets/images/icons/equipment/pickaxe.png" id="1_qpoq5"]
+
+[resource]
+script = ExtResource("1_fl0ce")
+gear_slot = 8
+damage_buff = 0
+armour_buff = 0
+item_name = "pickaxe"
+icon = ExtResource("1_qpoq5")
+stackable = false
+is_unique = false
+is_equipable = true

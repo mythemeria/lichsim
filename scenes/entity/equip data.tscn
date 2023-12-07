@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://6fhjsg38trhj"]
+
+[ext_resource type="Script" path="res://scripts/entity/equip data.gd" id="1_uukqc"]
+
+[node name="equip data" type="Node3D" groups=["gear"]]
+script = ExtResource("1_uukqc")

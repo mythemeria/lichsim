@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://barkm1l5wvhew"]
+
+[ext_resource type="Texture2D" uid="uid://34hhcr0f2sc0" path="res://assets/images/enemy avatar.png" id="1_vvf22"]
+[ext_resource type="Script" path="res://scripts/gui/turn_profile.gd" id="2_1ptsa"]
+
+[node name="Button" type="Button"]
+custom_minimum_size = Vector2(56, 56)
+layout_direction = 2
+offset_right = 56.0
+offset_bottom = 56.0
+scale = Vector2(0.667, 0.667)
+size_flags_horizontal = 0
+size_flags_vertical = 0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+toggle_mode = true
+icon = ExtResource("1_vvf22")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("2_1ptsa")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

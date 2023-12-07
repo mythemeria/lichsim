@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="GameData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/save data/game data.gd" id="1_x3vw2"]
+
+[resource]
+script = ExtResource("1_x3vw2")
+test = 1

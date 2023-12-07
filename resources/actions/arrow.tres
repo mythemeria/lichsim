@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Attack" load_steps=2 format=3 uid="uid://c5tr1obyssi03"]
+
+[ext_resource type="Script" path="res://scripts/entity/attack.gd" id="1_stsqd"]
+
+[resource]
+script = ExtResource("1_stsqd")
+base_damage = 3
+damage_type = 3
+action_name = "arrow"
+action_range = 20
+cursor_mode = 4
+select_mode = 4
+range_type = null
+called_function = "attack"
+function_parent_id = 4
+required_arguments = Array[int]([1, 2])

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="EquipableItem" load_steps=3 format=3 uid="uid://b10o1oyhi1mb1"]
+
+[ext_resource type="Texture2D" uid="uid://c7xw5s7hqahiy" path="res://assets/images/icons/equipment/blue tunic.png" id="1_hpwt6"]
+[ext_resource type="Script" path="res://scripts/resources/equipable item.gd" id="2_6mjk5"]
+
+[resource]
+script = ExtResource("2_6mjk5")
+gear_slot = 1
+damage_buff = 0
+armour_buff = 0
+item_name = "blue tunic"
+icon = ExtResource("1_hpwt6")
+stackable = false
+is_unique = false
+is_equipable = true

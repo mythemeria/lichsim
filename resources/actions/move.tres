@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Action" load_steps=2 format=3 uid="uid://dkl5culmgvypf"]
+
+[ext_resource type="Script" path="res://scripts/entity/action.gd" id="1_pq1i1"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("1_pq1i1")
+action_name = "move"
+action_range = 0
+cursor_mode = 0
+select_mode = 2
+range_type = null
+called_function = "move_active_entity"
+function_parent_id = 4
+required_arguments = Array[int]([0])

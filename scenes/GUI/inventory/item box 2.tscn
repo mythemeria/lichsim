@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://fpl57jhphsso"]
+
+[ext_resource type="Script" path="res://scripts/gui/item box.gd" id="1_1hanc"]
+[ext_resource type="LabelSettings" uid="uid://cqpvn727t0g8h" path="res://themes/item quantity label.tres" id="2_8a7y1"]
+
+[node name="Button" type="Button"]
+texture_filter = 6
+custom_minimum_size = Vector2(40, 40)
+offset_right = 8.0
+offset_bottom = 8.0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+button_mask = 0
+expand_icon = true
+script = ExtResource("1_1hanc")
+
+[node name="Item Count" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+label_settings = ExtResource("2_8a7y1")
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

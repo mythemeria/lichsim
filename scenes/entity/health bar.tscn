@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://gna6gebyq6o6"]
+
+[ext_resource type="Texture2D" uid="uid://cjtwtwbvr1dp6" path="res://assets/images/health bars/health bar sheet.png" id="1_y2tuf"]
+
+[node name="Sprite3D" type="Sprite3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.15, 0)
+billboard = 1
+texture_filter = 4
+texture = ExtResource("1_y2tuf")
+vframes = 101
+region_rect = Rect2(0, 0, 80, 9)

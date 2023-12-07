@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="EquipableItem" load_steps=3 format=3 uid="uid://cechnhqkyxsyt"]
+
+[ext_resource type="Texture2D" uid="uid://dlg36fu83nknb" path="res://assets/images/icons/equipment/metal gloves.png" id="1_ur14c"]
+[ext_resource type="Script" path="res://scripts/resources/equipable item.gd" id="2_nkarp"]
+
+[resource]
+script = ExtResource("2_nkarp")
+gear_slot = 6
+damage_buff = 0
+armour_buff = 0
+item_name = "steel gloves"
+icon = ExtResource("1_ur14c")
+stackable = false
+is_unique = false
+is_equipable = true

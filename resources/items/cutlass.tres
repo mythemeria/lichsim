@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="EquipableItem" load_steps=3 format=3 uid="uid://b0ee3ul7a8yu8"]
+
+[ext_resource type="Texture2D" uid="uid://bhskq2moqhgpk" path="res://assets/images/icons/equipment/cutlass.png" id="1_27qm4"]
+[ext_resource type="Script" path="res://scripts/resources/equipable item.gd" id="1_pg13i"]
+
+[resource]
+script = ExtResource("1_pg13i")
+gear_slot = 8
+damage_buff = 0
+armour_buff = 0
+item_name = "cutlass"
+icon = ExtResource("1_27qm4")
+stackable = false
+is_unique = false
+is_equipable = true

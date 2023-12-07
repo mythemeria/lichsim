@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://ccmq7x0f5jg7f"]
+
+[ext_resource type="Script" path="res://scripts/gui/inv slot control.gd" id="1_ltrb2"]
+
+[sub_resource type="Gradient" id="Gradient_80gqy"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_t8c45"]
+gradient = SubResource("Gradient_80gqy")
+width = 40
+
+[node name="Control" type="Control"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_ltrb2")
+
+[node name="Item Icon" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+texture = SubResource("GradientTexture1D_t8c45")
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]

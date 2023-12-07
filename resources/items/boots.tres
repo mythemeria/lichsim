@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="EquipableItem" load_steps=3 format=3 uid="uid://bq51p0o32rmm0"]
+
+[ext_resource type="Texture2D" uid="uid://ctgbaq32si6qo" path="res://assets/images/icons/equipment/boots.png" id="1_j1buq"]
+[ext_resource type="Script" path="res://scripts/resources/equipable item.gd" id="2_gs0gg"]
+
+[resource]
+script = ExtResource("2_gs0gg")
+gear_slot = 3
+damage_buff = 0
+armour_buff = 0
+item_name = "boots"
+icon = ExtResource("1_j1buq")
+stackable = false
+is_unique = false
+is_equipable = true

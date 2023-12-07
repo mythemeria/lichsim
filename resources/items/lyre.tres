@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="EquipableItem" load_steps=3 format=3 uid="uid://buylh4yfytn7i"]
+
+[ext_resource type="Texture2D" uid="uid://bqsragdgfsrxf" path="res://assets/images/icons/equipment/lyre.png" id="1_1ttcg"]
+[ext_resource type="Script" path="res://scripts/resources/equipable item.gd" id="1_4mdj2"]
+
+[resource]
+script = ExtResource("1_4mdj2")
+gear_slot = 8
+damage_buff = 0
+armour_buff = 0
+item_name = "lyre"
+icon = ExtResource("1_1ttcg")
+stackable = false
+is_unique = false
+is_equipable = true

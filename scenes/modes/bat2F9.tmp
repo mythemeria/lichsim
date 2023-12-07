@@ -1,0 +1,134 @@
+[gd_scene load_steps=10 format=3 uid="uid://d0rcj56mvya00"]
+
+[ext_resource type="Script" path="res://scripts/battle mode/battle cursor.gd" id="1_ek8fr"]
+[ext_resource type="Script" path="res://scripts/Turn Engine.gd" id="2_2qt4t"]
+[ext_resource type="Script" path="res://scripts/Skelly Select.gd" id="3_absr5"]
+[ext_resource type="Script" path="res://scripts/gui/action bar.gd" id="5_vn4rw"]
+[ext_resource type="Script" path="res://scripts/battle mode/party controller.gd" id="6_8k4w6"]
+[ext_resource type="PackedScene" uid="uid://rl303imqhwln" path="res://scenes/terrain.tscn" id="6_im88g"]
+[ext_resource type="PackedScene" uid="uid://dokxmer64kjb1" path="res://scenes/enemy.tscn" id="8_k6qja"]
+[ext_resource type="Script" path="res://scripts/battle mode/battle camera.gd" id="9_7le1q"]
+[ext_resource type="Script" path="res://scripts/Box Select.gd" id="9_77kut"]
+
+[node name="Battle Mode" type="Node3D"]
+
+[node name="GUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_ek8fr")
+
+[node name="MarginContainer" type="MarginContainer" parent="GUI"]
+clip_contents = true
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="Control" type="Control" parent="GUI/MarginContainer"]
+clip_contents = true
+layout_mode = 2
+mouse_filter = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="GUI/MarginContainer/Control"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -100.0
+offset_right = 100.0
+offset_bottom = 56.0
+grow_horizontal = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_right = 100
+
+[node name="Turn Profiles" type="HBoxContainer" parent="GUI/MarginContainer/Control/MarginContainer"]
+clip_children = 1
+layout_direction = 2
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+mouse_filter = 0
+alignment = 1
+script = ExtResource("2_2qt4t")
+
+[node name="Skeletons" type="ItemList" parent="GUI/MarginContainer"]
+custom_minimum_size = Vector2(90, 400)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+focus_mode = 0
+mouse_default_cursor_shape = 2
+select_mode = 1
+allow_search = false
+text_overrun_behavior = 1
+script = ExtResource("3_absr5")
+
+[node name="End Turn" type="Button" parent="GUI/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+text = "End Turn"
+
+[node name="Action Bar" type="GridContainer" parent="GUI/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+mouse_filter = 0
+columns = 10
+script = ExtResource("5_vn4rw")
+
+[node name="Map" type="Node3D" parent="."]
+
+[node name="Terrain" parent="Map" instance=ExtResource("6_im88g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, -0.5, -0.5)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Map"]
+transform = Transform3D(0.784892, 0.523738, 0.331123, -0.505564, 0.232322, 0.830922, 0.358258, -0.819588, 0.447131, 17.0029, 14.2563, 5.002)
+light_color = Color(0.937255, 0.92549, 0.847059, 1)
+shadow_enabled = true
+
+[node name="Controller" type="Node3D" parent="Map"]
+script = ExtResource("6_8k4w6")
+
+[node name="Entities" type="Node3D" parent="Map/Controller"]
+
+[node name="Enemy" parent="Map/Controller/Entities" instance=ExtResource("8_k6qja")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 6)
+
+[node name="Cam Base" type="Node3D" parent="Map/Controller"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.81137)
+script = ExtResource("9_7le1q")
+
+[node name="Main Cam" type="Camera3D" parent="Map/Controller/Cam Base"]
+transform = Transform3D(1, 0, 0, 0, 0.754503, 0.656296, 0, -0.656296, 0.754503, 0, 6.09513, 10.23)
+size = 10.0
+
+[node name="Selection Box" type="Control" parent="Map/Controller/Cam Base"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("9_77kut")
+
+[connection signal="gui_input" from="GUI" to="GUI" method="_on_gui_input"]
+[connection signal="gui_input" from="GUI" to="Map/Controller" method="_on_gui_gui_input"]
+[connection signal="item_clicked" from="GUI/MarginContainer/Skeletons" to="GUI/MarginContainer/Skeletons" method="_on_item_clicked"]
+[connection signal="pressed" from="GUI/MarginContainer/End Turn" to="GUI/MarginContainer/Control/MarginContainer/Turn Profiles" method="_on_end_turn_pressed"]
+[connection signal="path_found" from="Map/Terrain" to="Map/Controller" method="_on_terrain_path_found"]
+[connection signal="child_entered_tree" from="Map/Controller/Entities" to="GUI/MarginContainer/Control/MarginContainer/Turn Profiles" method="_on_entities_child_entered_tree"]
+[connection signal="child_exiting_tree" from="Map/Controller/Entities" to="GUI/MarginContainer/Control/MarginContainer/Turn Profiles" method="_on_entities_child_exiting_tree"]

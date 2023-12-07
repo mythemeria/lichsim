@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="Gear" load_steps=3 format=3 uid="uid://cc2o7myfm5ufr"]
+
+[ext_resource type="Script" path="res://scripts/resources/gear.gd" id="1_muowa"]
+[ext_resource type="Resource" uid="uid://bt4pdafnu2tj7" path="res://resources/items/bow.tres" id="2_pwrls"]
+
+[resource]
+script = ExtResource("1_muowa")
+body_type = 1
+slots = {
+0: null,
+1: null,
+2: null,
+3: null,
+4: null,
+5: null,
+6: null,
+7: null,
+8: ExtResource("2_pwrls"),
+9: null
+}

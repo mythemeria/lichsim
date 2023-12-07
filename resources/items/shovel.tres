@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="EquipableItem" load_steps=3 format=3 uid="uid://cstkfxaxpkbnr"]
+
+[ext_resource type="Script" path="res://scripts/resources/equipable item.gd" id="1_weugl"]
+[ext_resource type="Texture2D" uid="uid://ceddvw1nk0tla" path="res://assets/images/icons/equipment/shovel.png" id="1_wi4h4"]
+
+[resource]
+script = ExtResource("1_weugl")
+gear_slot = 8
+damage_buff = 0
+armour_buff = 0
+item_name = "shovel"
+icon = ExtResource("1_wi4h4")
+stackable = false
+is_unique = false
+is_equipable = true

@@ -1,0 +1,118 @@
+[gd_scene load_steps=6 format=3 uid="uid://exmughp2fvr2"]
+
+[ext_resource type="Script" path="res://scripts/PlayerController.gd" id="2_apvrg"]
+[ext_resource type="PackedScene" uid="uid://rl303imqhwln" path="res://scenes/terrain.tscn" id="3_fgxxl"]
+[ext_resource type="Script" path="res://scripts/gui stuff.gd" id="4_lt2tb"]
+[ext_resource type="Script" path="res://scripts/Box Select.gd" id="4_tqxq1"]
+[ext_resource type="Script" path="res://scripts/Skelly Select.gd" id="5_g4ds4"]
+
+[node name="Game" type="Node3D"]
+
+[node name="World" type="Node3D" parent="."]
+
+[node name="Map" type="Node3D" parent="."]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.5284, -28.3819)
+light_energy = 13.784
+omni_range = 59.8116
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.8645, 10.5284, 14.4245)
+light_energy = 13.784
+omni_range = 59.8116
+
+[node name="Terrain" parent="Map" instance=ExtResource("3_fgxxl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, -0.5, -0.5)
+
+[node name="Controller" type="Node3D" parent="Map"]
+script = ExtResource("2_apvrg")
+
+[node name="Dudes" type="Node3D" parent="Map/Controller"]
+
+[node name="Cam Base" type="Node3D" parent="Map/Controller"]
+
+[node name="Main Cam" type="Camera3D" parent="Map/Controller/Cam Base"]
+transform = Transform3D(1, 0, 0, 0, 0.754503, 0.656296, 0, -0.656296, 0.754503, 0, 8.56164, 10.8979)
+size = 10.0
+
+[node name="Selection Box" type="Control" parent="Map/Controller/Cam Base"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("4_tqxq1")
+
+[node name="Cursor" type="Node3D" parent="Map/Controller"]
+
+[node name="Node3D" type="Node3D" parent="Map/Controller"]
+
+[node name="GUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_lt2tb")
+
+[node name="MarginContainer" type="MarginContainer" parent="GUI"]
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="ItemList" type="ItemList" parent="GUI/MarginContainer"]
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+select_mode = 1
+allow_search = false
+auto_height = true
+script = ExtResource("5_g4ds4")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GUI/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_constants/separation = 10
+
+[node name="Move" type="Button" parent="GUI/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+toggle_mode = true
+text = "Move Unit"
+
+[node name="Summon" type="Button" parent="GUI/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+toggle_mode = true
+text = "Toggle Summon"
+
+[connection signal="path_found" from="Map/Terrain" to="Map/Controller" method="_on_terrain_path_found"]
+[connection signal="dude_deselected" from="Map/Controller" to="GUI/MarginContainer/ItemList" method="_on_controller_dude_deselected"]
+[connection signal="dude_dismissed" from="Map/Controller" to="GUI/MarginContainer/ItemList" method="_on_controller_dude_dismissed"]
+[connection signal="dude_selected" from="Map/Controller" to="GUI/MarginContainer/ItemList" method="_on_controller_dude_selected"]
+[connection signal="dude_summoned" from="Map/Controller" to="GUI/MarginContainer/ItemList" method="_on_controller_dude_summoned"]
+[connection signal="find_path" from="Map/Controller" to="Map/Terrain" method="_on_controller_find_path"]
+[connection signal="mark_mouse_occupied_status" from="GUI" to="Map/Controller" method="_on_gui_mark_mouse_occupied_status"]
+[connection signal="dude_selected" from="GUI/MarginContainer/ItemList" to="Map/Controller" method="_on_item_list_dude_selected"]
+[connection signal="item_clicked" from="GUI/MarginContainer/ItemList" to="GUI/MarginContainer/ItemList" method="_on_item_clicked"]
+[connection signal="mouse_entered" from="GUI/MarginContainer/ItemList" to="GUI" method="_on_item_list_mouse_entered"]
+[connection signal="mouse_exited" from="GUI/MarginContainer/ItemList" to="GUI" method="_on_item_list_mouse_exited"]
+[connection signal="mouse_entered" from="GUI/MarginContainer/VBoxContainer/Move" to="GUI" method="_on_move_mouse_entered"]
+[connection signal="mouse_exited" from="GUI/MarginContainer/VBoxContainer/Move" to="GUI" method="_on_move_mouse_exited"]
+[connection signal="toggled" from="GUI/MarginContainer/VBoxContainer/Move" to="Map/Controller" method="_on_move_toggled"]
+[connection signal="mouse_entered" from="GUI/MarginContainer/VBoxContainer/Summon" to="GUI" method="_on_summon_mouse_entered"]
+[connection signal="mouse_exited" from="GUI/MarginContainer/VBoxContainer/Summon" to="GUI" method="_on_summon_mouse_exited"]
+[connection signal="toggled" from="GUI/MarginContainer/VBoxContainer/Summon" to="Map/Controller" method="_on_summon_toggled"]

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="EquipableItem" load_steps=3 format=3 uid="uid://rmx65bwnd6nc"]
+
+[ext_resource type="Texture2D" uid="uid://cf14og0wyb3nf" path="res://assets/images/icons/equipment/knight helmet.png" id="1_j2lq4"]
+[ext_resource type="Script" path="res://scripts/resources/equipable item.gd" id="2_546rj"]
+
+[resource]
+script = ExtResource("2_546rj")
+gear_slot = 0
+damage_buff = 0
+armour_buff = 0
+item_name = "knight helmet"
+icon = ExtResource("1_j2lq4")
+stackable = false
+is_unique = false
+is_equipable = true

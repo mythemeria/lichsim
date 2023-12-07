@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=3 uid="uid://rdak62u8n7e1"]
+
+[ext_resource type="Script" path="res://scripts/gui/save load container.gd" id="1_g81pa"]
+
+[node name="CenterContainer" type="CenterContainer"]
+offset_right = 513.0
+offset_bottom = 40.0
+script = ExtResource("1_g81pa")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(61, 0)
+layout_mode = 2
+
+[node name="Save Label" type="Label" parent="HBoxContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+text = "placeholder text"
+text_overrun_behavior = 3
+
+[node name="Load" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+text = "Load"
+
+[node name="Delete" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+text = "Delete"
+
+[connection signal="pressed" from="HBoxContainer/Load" to="." method="_on_load_pressed"]
+[connection signal="pressed" from="HBoxContainer/Delete" to="." method="_on_delete_pressed"]

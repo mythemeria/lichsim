@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://cvcjw0oi5iyk4"]
+
+[ext_resource type="Script" path="res://scripts/gui/action_button.gd" id="1_w2pgi"]
+
+[node name="Action Button" type="Button"]
+offset_right = 8.0
+offset_bottom = 8.0
+toggle_mode = true
+script = ExtResource("1_w2pgi")
+
+[connection signal="toggled" from="." to="." method="_on_toggled"]

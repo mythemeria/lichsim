@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://c0xat3unphbcl"]
+
+[ext_resource type="Script" path="res://scripts/map mode/location.gd" id="1_5dyhr"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h5d4c"]
+diffuse_mode = 1
+specular_mode = 1
+albedo_color = Color(1, 0, 0, 1)
+roughness = 0.0
+grow_amount = -1.215
+
+[sub_resource type="BoxMesh" id="BoxMesh_75y8l"]
+material = SubResource("StandardMaterial3D_h5d4c")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mggxr"]
+
+[node name="StaticBody3D" type="StaticBody3D"]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_5dyhr")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_75y8l")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_mggxr")

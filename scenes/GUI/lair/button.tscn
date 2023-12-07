@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://csdro41c35jb6"]
+
+[ext_resource type="Script" path="res://scripts/gui/lair/button.gd" id="1_f72et"]
+
+[node name="Button" type="Button"]
+focus_mode = 0
+toggle_mode = true
+text = "name"
+script = ExtResource("1_f72et")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
+[connection signal="toggled" from="." to="." method="_on_toggled"]

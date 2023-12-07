@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://3yk8xovkafxe"]
+
+[ext_resource type="Script" path="res://scripts/gui/load game menu.gd" id="1_1rdps"]
+
+[node name="VBoxContainer" type="VBoxContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_1rdps")
